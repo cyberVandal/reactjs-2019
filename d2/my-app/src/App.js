@@ -32,8 +32,31 @@ class App extends Component  {
   ],
   }
 
-  courseDetails = (name) => {
-      console.log("Kliknat" + name);
+  courseDetails = (name, br) => {
+      console.log("Kliknat" + name + br);
+      const courseInfoName = this.state.courses[br].name;
+      const courseInfoDays = this.state.courses[br].days;
+      const courseInfoDesc = this.state.courses[br].desc;
+      document.getElementById('infoCourseName').innerHTML = courseInfoName;
+      document.getElementById('infoCourseDays').innerHTML = courseInfoDays;
+      document.getElementById('infoCourseDesc').innerHTML = courseInfoDesc;
+
+  }
+  courseAdd = () => {
+          const newName = document.getElementById('newName').value;
+          const newDays = document.getElementById('newDays').value;
+          const newDesc = document.getElementById('newDesc').value;
+          const newCourse ={
+              name: newName,
+              days: newDays,
+              desc: newDesc
+
+          }
+          console.log("Prateni se podatoci "+ newName);
+          const newCourses = [...this.state.courses];
+          newCourses.push(newCourse);
+          this.setState({ courses: newCourses});
+
 
   }
   
@@ -53,6 +76,7 @@ class App extends Component  {
                 <List 
                   key={index}
                   name={course.name}
+                  br={index}
                   click={this.courseDetails}           
                 />                       
               )
@@ -64,14 +88,28 @@ class App extends Component  {
      
       <hr/>
 
-      <div id="infoCourse">
+      <div id="selectedCourse">
         <h3>Selected course details</h3>
+        <h3 id="infoCourseName"></h3>
+        <p id="infoCourseDays"></p>
+        <p id="infoCourseDesc"></p>      
       </div>
       <hr/>
 
       <div id="addCourse">
         <h3>Add a Course</h3>
-      </div>
+              
+                  <label>Name</label>
+                  <input id="newName" type="text" name="name"></input>
+                  <br/>
+                  <label>Days</label>
+                  <input id="newDays"type="text" name="days"></input>
+                  <br/>
+                  <label>Description</label>
+                  <input id="newDesc" type="textarea" name="desc"></input>
+                  <br/>
+                  <button onClick={this.courseAdd}>ADD</button>
+     </div>
 
       </>
     );
