@@ -1,0 +1,5 @@
+-So switch od React koga ke se pronjde ruta zastanuva 
+
+-Razlika pomegju NavLink i Link  deka NavLink pomni koj link e selektiran  za da moze da mu se dodade CSS
+
+-
