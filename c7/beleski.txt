@@ -2,4 +2,8 @@
 
 -Razlika pomegju NavLink i Link  deka NavLink pomni koj link e selektiran  za da moze da mu se dodade CSS
 
--
+-VO komponenta <Product>  se ovde vnatre  e Children  <Product/> i se pristapuva kako props.children... 
+
+this.setState((prevState, props)=> {
+    clicked: !prevState.clicked
+})

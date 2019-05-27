@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Product from './product/Product';
+import Product from '../product/Product';
+
+
+const filterOptions =['XS','S','M','ML']
+
 
 class Store extends Component {
     
@@ -8,12 +12,14 @@ class Store extends Component {
         super(props);
     
         this.state ={
-          products: []
+          products: [],
+
         }
     
       }  
+
       componentDidMount() {
-        axios.get('http://www.mocky.io/v2/5ce924013300004210525cd3')
+        axios.get('http://localhost:8080/products')
           .then(response => this.setState({products: response.data.products}));
                 
       }
@@ -29,6 +35,10 @@ class Store extends Component {
         }
         return (
             <>
+
+            {
+              filterOptions.map(filter => <span style={{padding:"10px", margin:"10px", cursor:"pointer"}}  key={filter.index} />)
+            }
             <div style={wraper}>
                 {
                     this.state.products.map(product => <Product
@@ -36,6 +46,7 @@ class Store extends Component {
                     id={product.id}
                     title={product.title}
                     img={product.imgUrl}
+                    price={product.price}
                     /> )
                 }
             </div>

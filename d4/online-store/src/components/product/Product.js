@@ -12,18 +12,21 @@ function Product(props) {
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
-    justifyContent: "center"
+    justifyContent: "center",
+    marginTop:"25px"
 
   } 
-  const addToCart ={
-    
+  const imgStyle ={
+      height:"200px",
+
     
   }
   return (
         <div style={product}>
             <h3>{props.title}</h3>
-            <img src={props.img} />
-            <a className={style.myButton}>Add to Cart</a>
+            <img style={imgStyle} src={props.img} />
+            <h3>$ {props.price}</h3>
+            <a style={{color:"white"}} className={style.myButton}>Add to Cart</a>
         </div>
   );
 }
