@@ -1,0 +1,2 @@
+-Higerorder function e koga prima ili vrakja funkcija kako argument prima a vrakaja funkcija so return
+-
