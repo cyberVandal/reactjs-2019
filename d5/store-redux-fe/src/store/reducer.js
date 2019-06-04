@@ -1,53 +1,41 @@
-import { INCREMENT, ADD, DECREMENT, SUB } from "./actions";
+import * as actions from './actions';
 
 const initialState = {
-	products: []
+	products: [],
+	currentSelected: new Set(),
+	filtered: []
 };
 
 const reducer = (state = initialState, action) => {
 
-	// switch (action.type) {
-	// 	case INCREMENT:
-	// 		return {
-	// 			...state,
-	// 			counter: state.counter + 1
-	// 		}
-	// 	case ADD:
-	// 		return {
-	// 			...state,
-	// 			counter: state.counter + action.value
-	// 		}
-	// 	case DECREMENT:
-	// 		return {
-	// 			...state,
-	// 			counter: state.counter - 1
-	// 		}
-	// 	case SUB:
-	// 		return {
-	// 			...state,
-	// 			counter: state.counter - action.payload
-	// 		}
-	// 	default:
-	// 		return state;
-	// }
+	switch (action.type) {
+		case actions.INITIAL_STATE:
+			return {
+				...state,
+				products: action.products
+			}
+		case actions.SET_FILTER:
+			console.log(action.filtered);
+			return {
+				...state,
+				filtered: action.filtered
+			}
 
-	// if (action.type === 'INCREMENT') {
-	// 	// const newTmp = {...state};
-	// 	// newTmp.counter = state.counter + 1;
-	// 	// return newTmp;
-	// 	return {
-	// 		...state,
-	// 		counter: state.counter + 1
-	// 	}
-	// }
-	if (action.type === 'INITIAL_STATE') {
-		return {
-			...state,
-			products: action.products
-		}
+		case actions.SET_CURRENT:
+			console.log(action.current);
+			return {
+				...state,
+				currentSelected: action.current
+			}
+
+
+		default:
+			return state;
 	}
+	
 
-	 return state;
+
+	
 };
 
 export default reducer;
