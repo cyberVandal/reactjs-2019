@@ -28,7 +28,7 @@ class Store extends Component {
       this.setState({products: response.data.products})
       this.props.setFilter(response.data.products)
     } );
-      // .then(response => this.props.initial(response.data.products));
+      
          
   }
   updateFiltered = () => {
