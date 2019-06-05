@@ -19,6 +19,7 @@ const reducer = (state = initialState, action) => {
 		case actions.SET_FILTER:
 			console.log(action.filtered);
 			return {
+				
 				...state,
 				filtered: action.filtered
 			}

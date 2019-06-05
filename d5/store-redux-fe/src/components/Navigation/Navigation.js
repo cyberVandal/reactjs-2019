@@ -47,7 +47,7 @@ class Navigation extends React.Component {
                                 <NavLink className={classes.link} activeClassName={classes.activePage} to="/store">Store</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className={classes.link} activeClassName={classes.activePage} to="/cart"><img src={this.props.isEmpty ? img : imgN} style={{width:'20px', height:'20px' }} /></NavLink>
+                                <NavLink className={classes.link} activeClassName={classes.activePage} to="/cart"><span>{this.props.cartLength == 0 ? " " : this.props.cartLength }</span><img src={this.props.isEmpty ? img : imgN} style={{width:'20px', height:'20px' }} /></NavLink>
                             </NavItem>
                             
                         </Nav>
@@ -60,7 +60,8 @@ class Navigation extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-    isEmpty: state.isEmpty
+    isEmpty: state.isEmpty,
+    cartLength: state.cart.length
 	};
 };
 
