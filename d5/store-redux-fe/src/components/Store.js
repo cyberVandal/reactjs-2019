@@ -28,7 +28,7 @@ class Store extends Component {
     axios.get('http://localhost:8080/products')
     .then(response => {
       this.setState({products: response.data.products})
-      this.props.setFilter(response.data.products)
+      this.props.setFilter(response.data.products) 
     } );
       
          
@@ -69,7 +69,7 @@ class Store extends Component {
 
     handleProductClick = (id) => {
         // console.log('Clicked product with id : ', id);
-        //  this.props.history.push(`/store/${id}`);
+         this.props.history.push(`/store/${id}`);
         // this.props.setSelected(id);
     }
 

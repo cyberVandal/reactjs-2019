@@ -12,9 +12,9 @@ class FullProduct extends React.Component {
     componentDidMount() {
         console.log("Hello From FullProduct")
         console.log(this.props.match.params.id);
-        fetch(`http://localhost:8080/products/${this.props.match.params.id}`)
-            .then(response => response.json())
-            .then(data => this.setState({ currentProduct: data }));
+        // fetch(`http://localhost:8080/products/${this.props.match.params.id}`)
+        //     .then(response => response.json())
+        //     .then(data => this.setState({ currentProduct: data }));
     }
 
 
