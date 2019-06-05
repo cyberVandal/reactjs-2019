@@ -2,10 +2,10 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 
 import Home from './components/Home';
-import Cart from './components/Cart';
+import Cart from './components/Cart/Cart';
 import Store from './components/Store';
-import FullProduct from './components/FullProduct';
 import Navigation from './components/Navigation/Navigation';
+import FullProduct from './components/FullProduct/FullProduct';
 
 
 

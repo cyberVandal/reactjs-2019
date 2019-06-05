@@ -9,4 +9,7 @@ export const STORE_COUNTER = 'STORE_COUNTER';
 
 export const INITIAL_STATE = 'INITIAL_STATE';
 export const SET_FILTER = 'SET_FILTER';
-export const SET_CURRENT= 'SET_CURRENT';
+export const SET_CURRENT = 'SET_CURRENT';
+export const SET_SELECTED = 'SET_SELECTED';
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';

@@ -43,6 +43,9 @@ class Navigation extends React.Component {
                             <NavItem>
                                 <NavLink className={classes.link} activeClassName={classes.activePage} to="/store">Store</NavLink>
                             </NavItem>
+                            <NavItem>
+                                <NavLink className={classes.link} activeClassName={classes.activePage} to="/cart">Cart</NavLink>
+                            </NavItem>
                         </Nav>
                     </Collapse>
                 </Navbar>

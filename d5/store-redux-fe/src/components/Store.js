@@ -9,6 +9,7 @@ import SizeFilter from './SizeFilter/SizeFilter';
 
 
 
+
 class Store extends Component {
     constructor(props) {
       super(props);
@@ -16,7 +17,8 @@ class Store extends Component {
       this.state = {
           products: [],
           currentSelected: new Set(),
-          filtered: []
+          filtered: [],
+          Cart: []
       }
     }
 
@@ -65,6 +67,25 @@ class Store extends Component {
       this.updateFiltered()
     } 
 
+    handleProductClick = (id) => {
+        // console.log('Clicked product with id : ', id);
+        //  this.props.history.push(`/store/${id}`);
+        // this.props.setSelected(id);
+    }
+
+    handleAddToCart = (id) => {
+    
+        for (let i = 0; i < this.state.products.length; i++) {
+            if (this.state.products[i].id == id){
+                this.props.addToCart(this.state.products[i]);
+                
+            }
+        }
+        
+
+    }
+
+
   render(){
     return (
        <>
@@ -76,6 +97,7 @@ class Store extends Component {
 
                 <Products
                     click={this.handleProductClick}
+                    addToCart={this.handleAddToCart}
                     filtered={this.props.filtered} />
             </>
         
@@ -88,14 +110,17 @@ const mapStateToProps = state => {
 	return {
     products: state.products,
     currentSelected: state.currentSelected,
-    filtered: state.filtered	
+    filtered: state.filtered,
+    cart: state.cart	
 	};
 };
 const mapDispatchToProps = dispatch => {
 	return {
     initial: (val) => dispatch({ type: actions.INITIAL_STATE, products: val }),
     setFilter: (arg) => dispatch({type: actions.SET_FILTER, filtered: arg}),
-    setCurrent: (arg1) => dispatch({type: actions.SET_CURRENT, current: arg1})
+    setCurrent: (arg1) => dispatch({type: actions.SET_CURRENT, current: arg1}),
+    setSelected: (id) => dispatch({type: actions.SET_SELECTED, selected: id}),
+    addToCart: (cart) => dispatch({type: actions.ADD_TO_CART, clicked: cart})
 	}
 }
 
