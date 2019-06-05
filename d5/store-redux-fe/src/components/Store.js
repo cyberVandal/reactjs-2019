@@ -67,14 +67,16 @@ class Store extends Component {
       this.updateFiltered()
     } 
 
-    handleProductClick = (id) => {
+    handleProductClick =  (id) => {
         // console.log('Clicked product with id : ', id);
+        // event.stopPropagation();
          this.props.history.push(`/store/${id}`);
+         
         // this.props.setSelected(id);
     }
 
-    handleAddToCart = (id) => {
-    
+    handleAddToCart = (event, id) => {
+        event.stopPropagation();
         for (let i = 0; i < this.state.products.length; i++) {
             if (this.state.products[i].id == id){
                 this.props.addToCart(this.state.products[i]);

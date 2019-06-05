@@ -8,7 +8,7 @@ function Products(props) {
             {
                 props.filtered.map(product => <Product 
                     click={() => props.click(product.id)}
-                    addToCart={() => props.addToCart(product.id)}
+                    addToCart={(event) => props.addToCart(event, product.id)}
                     currencyFormat={product.currencyFormat}
                     currencyId={product.currencyId}
                     key={product.id}
