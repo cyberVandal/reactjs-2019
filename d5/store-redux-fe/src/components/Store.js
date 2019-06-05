@@ -120,7 +120,8 @@ const mapDispatchToProps = dispatch => {
     setFilter: (arg) => dispatch({type: actions.SET_FILTER, filtered: arg}),
     setCurrent: (arg1) => dispatch({type: actions.SET_CURRENT, current: arg1}),
     setSelected: (id) => dispatch({type: actions.SET_SELECTED, selected: id}),
-    addToCart: (cart) => dispatch({type: actions.ADD_TO_CART, clicked: cart})
+    addToCart: (cart) => dispatch({type: actions.ADD_TO_CART, clicked: cart}),
+    // isEmpty: () => dispatch({type: actions.IS_EMPTY})
 	}
 }
 

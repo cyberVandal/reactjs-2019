@@ -4,7 +4,8 @@ const initialState = {
 	products: [],
 	currentSelected: new Set(),
 	filtered: [],
-	cart: []
+	cart: [],
+	isEmpty: true
 };
 
 const reducer = (state = initialState, action) => {
@@ -38,10 +39,14 @@ const reducer = (state = initialState, action) => {
 				else{
 					tmpCart.push(action.clicked);
 				}
+				var tmpIsEmpty1 = state.isEmpty;
 				
+				tmpIsEmpty1= false;		 
+						
 				return {
 					...state,
-					cart: tmpCart					
+					cart: tmpCart,
+					isEmpty: tmpIsEmpty1					
 				}
 
 		case actions.REMOVE_FROM_CART:
@@ -51,11 +56,16 @@ const reducer = (state = initialState, action) => {
 					  tmpCartRemove.splice(i, 1); 
 						}
 					 }
-						
+			var tmpIsEmpty = state.isEmpty;
+				if(state.cart.length == 1){
+					tmpIsEmpty= true;		 
+				}			
 			return {
 			...state,
-			cart: tmpCartRemove					
+			cart: tmpCartRemove,
+			isEmpty: tmpIsEmpty				
 				}
+
 
 		default:
 			return state;

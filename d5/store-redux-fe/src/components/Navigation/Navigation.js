@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import img from '../images/shopping_cart.png';
+import imgN from '../images/shopping_cart_n.png';
 import {
     Collapse,
     Navbar,
@@ -44,8 +47,9 @@ class Navigation extends React.Component {
                                 <NavLink className={classes.link} activeClassName={classes.activePage} to="/store">Store</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className={classes.link} activeClassName={classes.activePage} to="/cart">Cart</NavLink>
+                                <NavLink className={classes.link} activeClassName={classes.activePage} to="/cart"><img src={this.props.isEmpty ? img : imgN} style={{width:'20px', height:'20px' }} /></NavLink>
                             </NavItem>
+                            
                         </Nav>
                     </Collapse>
                 </Navbar>
@@ -54,4 +58,11 @@ class Navigation extends React.Component {
     }
 }
 
-export default Navigation;
+const mapStateToProps = state => {
+	return {
+    isEmpty: state.isEmpty
+	};
+};
+
+export default connect(mapStateToProps)(Navigation);
+
