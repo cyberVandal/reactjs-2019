@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import classes from './FullProduct.module.css';
 
 class FullProduct extends React.Component {
@@ -11,21 +10,10 @@ class FullProduct extends React.Component {
     }
 
     componentDidMount() {
-        console.log("Hello From FullProduct")
-        console.log(this.props.match.params.id);
-        console.log(this.props.products.length);
-        // for(let i=0; i <= this.props.products.length; i++){
-        //   if(this.props.products[i].id == this.props.match.params.id){
-        //     this.setState({ currentProduct: this.props.product[i] })
-        //   }  
-
-        // }
-        //const result = this.props.products.filter(product => product.id === this.props.match.params.id);
-    // console.log(result)
-      //  this.setState({ currentProduct: result })
-        // fetch(`http://localhost:8080/products/${this.props.match.params.id}`)
-        //     .then(response => response.json())
-        //     .then(data => this.setState({ currentProduct: data }));
+        console.log(this.props)
+        fetch(`http://localhost:8080/products/${this.props.match.params.id}`)
+            .then(response => response.json())
+            .then(data => this.setState({ currentProduct: data }));
     }
 
 
@@ -75,9 +63,5 @@ class FullProduct extends React.Component {
     }
 
 }
-const mapStateToProps = state => {
-	return {
-    products: state.products
-	};
-};
-export default connect(mapStateToProps)(FullProduct);
+
+export default FullProduct;

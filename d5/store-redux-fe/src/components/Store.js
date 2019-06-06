@@ -29,6 +29,7 @@ class Store extends Component {
     .then(response => {
       this.setState({products: response.data.products})
       this.props.setFilter(response.data.products) 
+      this.props.initial(response.data.products)
     } );
       
          
