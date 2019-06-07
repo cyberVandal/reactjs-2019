@@ -66,7 +66,7 @@ const reducer = (state = initialState, action) => {
 			cart: tmpCartRemove,
 			isEmpty: tmpIsEmpty				
 				}
-
+		
 
 		default:
 			return state;
