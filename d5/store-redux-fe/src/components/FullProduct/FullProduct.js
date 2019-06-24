@@ -1,16 +1,16 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import classes from './FullProduct.module.css';
 import * as actions from '../../store/actions';
 
 class FullProduct extends React.Component {
     constructor(props) {
         super(props);
-  
+
         this.state = {
             product: {}
         }
-      }
+    }
 
     componentDidMount() {
         console.log("Hello From FullProduct")
@@ -18,19 +18,20 @@ class FullProduct extends React.Component {
         console.log(this.props.products.length);
         console.log(this.props.products[5].price);
         const paramsId = this.props.match.params.id;
-        for(let i = 0; i < this.props.products.length; i++){
-          if(this.props.products[i].id == paramsId){
-            this.setState({product: this.props.products[i]});
-            console.log(this.props.products[i])
-          }  
+        for (let i = 0; i < this.props.products.length; i++) {
+            if (this.props.products[i].id == paramsId) {
+                this.setState({ product: this.props.products[i] });
+                console.log('in for : ', this.props.products[i])
+                break;
+            }
 
-         }
+        }
 
-         console.log(this.state.product);
-        
+        console.log('this state : ', this.state.product);
+
         //const result = this.props.products.filter(product => product.id === this.props.match.params.id);
-    // console.log(result)
-      //  this.setState({ currentProduct: result })
+        // console.log(result)
+        //  this.setState({ currentProduct: result })
         // fetch(`http://localhost:8080/products/${this.props.match.params.id}`)
         //     .then(response => response.json())
         //     .then(data => this.setState({ currentProduct: data }));
@@ -54,6 +55,7 @@ class FullProduct extends React.Component {
     // }
 
     render() {
+        console.log(this.state.product)
         // const {
         //     title, imgUrl, style, price,
         //     isFreeShipping, pieces, description,
@@ -84,15 +86,15 @@ class FullProduct extends React.Component {
 
 }
 const mapStateToProps = state => {
-	return {
-    products: state.products
-	};
+    return {
+        products: state.products
+    };
 };
 
 const mapDispatchToProps = dispatch => {
-	return {
-    clicked: (val) => dispatch({ type: actions.CLICKED, clicked: val }),
-    
-	}
+    return {
+        clicked: (val) => dispatch({ type: actions.CLICKED, clicked: val }),
+
+    }
 }
 export default connect(mapStateToProps)(FullProduct);
