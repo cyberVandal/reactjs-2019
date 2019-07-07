@@ -26,7 +26,7 @@ class FullProduct extends React.Component {
 
          }
 
-         console.log(this.state.product);
+        
         
         //const result = this.props.products.filter(product => product.id === this.props.match.params.id);
     // console.log(result)
@@ -35,7 +35,10 @@ class FullProduct extends React.Component {
         //     .then(response => response.json())
         //     .then(data => this.setState({ currentProduct: data }));
     }
-
+    const proverka = () => {
+        console.log(this.state.product);
+    }
+    proverka();
 
     //   "availableSizes": [
     //     "S",
@@ -52,7 +55,8 @@ class FullProduct extends React.Component {
     //   "imgUrl": "https://react-shopping-cart-67954.firebaseapp.com/static/media/12064273040195392_1.2995d79a.jpg",
     //   "title": "Cat Tee Black T-Shirt"
     // }
-
+    
+     
     render() {
         // const {
         //     title, imgUrl, style, price,
@@ -61,7 +65,14 @@ class FullProduct extends React.Component {
         // } = this.state.currentProduct;
         return (
             <div className={classes.wrapper}>
-                {/* <h1>
+
+                { this.state.product}                
+                
+                
+                {
+                    
+                   
+                    /* <h1>
                     {title}
                 </h1>
                 <img src={imgUrl} alt={description} />
